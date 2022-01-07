@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Student Management System</title>
+
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+	crossorigin="anonymous">
+	
+	<script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+	
+	<link th:href="@{/createcar2.css}" rel="stylesheet" />
+	
+</head>
+<body>
+
+<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+  <!-- Brand -->
+  <i class='fas fa-car-side' style='font-size:48px;color:red'></i>
+  <a class="navbar-brand" th:href="@{/}">E-CAR RENTAL</a>
+
+  <!-- Toggler/collapsibe Button -->
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <!-- Navbar links -->
+  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+    <ul class="navbar-nav">
+     
+       <li class="nav-item">
+       <a class="nav-link" th:href = "@{/rentals}" >Admin</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" th:href="@{/customers/new}">Register</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<br>
+<br>
+	<div class = "container">
+		<div class = "row">
+			<div class ="col-lg-6 col-md-6 col-sm-6 container justify-content-center card">
+				<h1 class = "text-center">Registration</h1>
+				<div class = "card-body">
+					<form th:action="@{/customers}" th:object = "${customer}" method="POST">
+						<div class ="form-group">
+							<label> Customer  Name </label>
+							<input
+							type = "text"
+							name = "name"
+							th:field = "*{name}"
+							class = "form-control"
+							placeholder="Enter rental Name" 
+							/>
+						</div>
+						
+						<div class ="form-group">
+							<label>  Customer   email</label>
+							<input
+							type = "text"
+							name = "email"
+							th:field = "*{email}"
+							class = "form-control"
+							placeholder="Enter email" 
+							/>
+						</div>
+						
+						<div class ="form-group">
+							<label> Customer password </label>
+							<input
+							type = "text"
+							name = "password"
+							th:field = "*{password}"
+							class = "form-control"
+							placeholder="Enter password" 
+							/>
+						</div>
+						
+						<div class ="form-group">
+							<label> Customer mobile </label>
+							<input
+							type = "text"
+							name = "mobile"
+							th:field = "*{mobile}"
+							class = "form-control"
+							placeholder="Enter mobile" 
+							/>
+						</div>
+						
+						<div class ="form-group">
+							<label> Customer city </label>
+							<input
+							type = "text"
+							name = "city"
+							th:field = "*{city}"
+							class = "form-control"
+							placeholder="Enter city" 
+							/>
+						</div>
+						
+						<div class = "box-footer">
+							<button type="submit" class = "btn btn-primary">
+								Submit
+							</button>
+						</div>
+					</form>
+				
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

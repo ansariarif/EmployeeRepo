@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html >
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/cosmo/bootstrap.min.css" />
+
+
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+	crossorigin="anonymous">
+	
+	<script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+	
+	 <link th:href="@{/login.css}" rel="stylesheet" /> 
+</head>
+<body>
+
+
+
+<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+  <!-- Brand -->
+  <i class='fas fa-car-side' style='font-size:48px;color:red'></i>
+  <a class="navbar-brand" th:href="@{/}">E-CAR RENTAL</a>
+
+  <!-- Toggler/collapsibe Button -->
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <!-- Navbar links -->
+  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+    <ul class="navbar-nav">
+     
+       <li class="nav-item">
+       <a class="nav-link" th:href = "@{/rentals}" >Admin</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" th:href="@{/customers/new}">Register</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<br>
+<br>
+
+
+ <div class="container">
+            <table width="50%" height="100%"  align="center">
+            <tr>
+                <td align="center" valign="middle">
+                <table class="table table-bordered" width="100%">
+        
+        <form  th:action="@{/loginrental}" th:object="${rental}" method="post">
+  
+          
+                  <tr>
+                                    <td height="25" colspan="2" align="left" valign="middle" bgcolor="#ffffff" class="style2">
+                                        <div align="center">
+                                            <strong>Rental Login</strong>
+                                        </div>
+                                        
+                                    </td>
+                                </tr>
+ 
+            <tr>
+                <td>Username</td>
+                <td>
+            
+                <input type="text" th:field="*{name}" name ="name" class="form-control" />
+                </td>
+            </tr>
+            <tr>
+                <td>Password</td>
+                <td><input type="password" th:field="*{password}" name = "password" class="form-control" /></td>
+            </tr>
+            <tr>
+            <td colspan="2"><button type="submit" class="btn btn-info" align="right">Login</button> </td>
+            </tr>
+        
+    </form>
+       </table>  
+         </td>  
+         </tr>  
+      </table>
+     </div>  
+
+</body>
+</html>

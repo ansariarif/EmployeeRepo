@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+	crossorigin="anonymous">
+	
+	<script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+	
+	<link th:href="@{/index.css}" rel="stylesheet" />
+</head>
+<body>
+
+<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+  <!-- Brand -->
+  <i class='fas fa-car-side' style='font-size:48px;color:red'></i>
+  <a class="navbar-brand" href="#"><b>E-CAR RENTAL</b></a>
+
+  <!-- Toggler/collapsibe Button -->
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <!-- Navbar links -->
+  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+    <ul class="navbar-nav">
+    <li class="nav-item">
+        <a class="nav-link" th:href="@{/rentals}">Admin Work Space</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" th:href="@{/loginrental}">Rental login</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" th:href="@{/logincustomer}">Customer Login</a>
+      </li>
+      
+       <li class="nav-item">
+        <a class="nav-link" th:href="@{/customers/new}">Customer Register</a>
+      </li>
+      
+      
+       <form th:action="@{/logout}" method="post">
+         <input type="submit" class="btn btn-info" value="logout" />
+       </form>
+    </ul>
+  </div>
+</nav>
+
+<br>
+<br>
+
+<h1> welcome</h1>
+
+<br>
+<br>
+<br>
+<br>
+<br><br>
+
+<i class='fas fa-car-alt' style='font-size:100px;color:purple;margin-left:45%'></i>
+
+
+
+
+</body>
+</html>

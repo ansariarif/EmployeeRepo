@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Add Car</title>
+
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+	crossorigin="anonymous">
+	
+	<script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+	
+	
+	<link th:href="@{/viewcar.css}" rel="stylesheet" />
+</head>
+<body>
+
+<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+  <!-- Brand -->
+  <i class='fas fa-car-side' style='font-size:48px;color:red'></i>
+  <a class="navbar-brand" th:href = "@{/}">  CAR MANAGEMENT</a>
+
+  <!-- Toggler/collapsibe Button -->
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <!-- Navbar links -->
+  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+    <ul class="navbar-nav">
+     <li class="nav-item">
+       <a class="nav-link" th:href = "@{/}">home</a>
+      </li>
+     
+      
+      
+    </ul>
+  </div>
+</nav>
+
+<div class ="container">
+		<div class = "row">
+			<h1 >Car Available </h1>
+		</div>
+		
+		
+		<div class="alert alert-primary" role="alert" th:text="${success}" th:if="${success}"></div>
+      <div class="alert alert-danger" role="alert" th:text="${error}" th:if="${error}"></div> 
+		
+	<!-- 	<div class = "row">
+			<div class = "col-lg-3">
+				<a th:href = "@{/cars/new}" class = "btn btn-primary btn-sm mb-3"> Add Car</a>
+			</div>
+		</div>   -->
+		
+		
+		<table class = "table table-striped table-bordered">
+			<thead class = "table-dark">
+				<tr>
+				    <th>Car No</th>
+					<th> Car Name</th>
+					<th> Car Type</th>
+					<th> Quantity </th>
+					<th> Issued </th>
+					<th> return status </th>
+					<th> Book Car </th>
+					<th> Return </th>
+					
+				</tr>
+			</thead>
+			
+			<tbody>
+				<tr th:each = "car: ${viewcars}">
+					<td th:text = "${car.carno}"></td>
+					<td th:text = "${car.name}"></td>
+					<td th:text = "${car.type}"></td>
+					<td th:text = "${car.quantity}"></td>
+					<td th:text = "${car.issued}"></td>
+					<td th:text = "${car.returnstatus}"></td>
+				
+					
+					<td>	
+						<a th:href = "@{/viewcars/edit/{carno}(carno=${car.carno})}"
+						 class = "btn btn-primary">Book</a>
+						 
+					</td>
+					
+					<td>	
+						<a th:href = "@{/viewcars/return/{carno}(carno=${car.carno})}"
+						 class = "btn btn-success">Return</a>
+						 
+					</td>
+				</tr>
+			</tbody>
+		
+		</table>
+		
+	</div>
+
+</body>
+</html>

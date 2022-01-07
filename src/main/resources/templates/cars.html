@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Add Car</title>
+
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+	crossorigin="anonymous">
+	
+	<script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+	
+	
+	<link th:href="@{/viewcar.css}" rel="stylesheet" />
+</head>
+<body>
+
+<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+  <!-- Brand -->
+  <i class='fas fa-car-side' style='font-size:48px;color:red'></i>
+  <a class="navbar-brand" th:href="@{/}">  CAR MANAGEMENT</a>
+
+  <!-- Toggler/collapsibe Button -->
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <!-- Navbar links -->
+  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+    <ul class="navbar-nav">
+     <li class="nav-item">
+       <a class="nav-link" th:href = "@{/rentals}">Admin</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" th:href="@{/cars}">View Car</a>
+      </li>
+       <li class="nav-item">
+       <a class="nav-link" th:href = "@{/cars/new}"> Add Car</a>
+      </li>
+       <li class="nav-item">
+       <a class="nav-link" th:href = "@{/customers}"> View customer</a>
+      </li>
+      
+       <li class="nav-item">
+        <a class="nav-link" th:href="@{/logout}">Logout</a>
+      </li>
+      
+     <!--  <form th:action="@{/logout}" method="post">
+         <input type="submit" class="btn btn-info" value="logout" />
+       </form>   --> 
+      
+      
+    </ul>
+  </div>
+</nav>
+
+<div class ="container">
+
+      
+      <div class="alert alert-primary" role="alert" th:text="${success}" th:if="${success}"></div>
+      <div class="alert alert-danger" role="alert" th:text="${error}" th:if="${error}"></div>   
+        
+		<div class = "row">
+			<h1 > car added by admin </h1>
+		</div>
+		
+	<!-- 	<div class = "row">
+			<div class = "col-lg-3">
+				<a th:href = "@{/cars/new}" class = "btn btn-primary btn-sm mb-3"> Add Car</a>
+			</div>
+		</div>   -->
+		
+		
+		<table class = "table table-striped table-bordered">
+			<thead class = "table-dark">
+				<tr>
+				    <th>Car No</th>
+					<th> Car Name</th>
+					<th> Car Type</th>
+					<th> Quantity </th>
+					<th> Issued </th>
+					<th> return status </th>
+					<!--<th> Book Car </th>
+				        <th> Return </th>  -->
+					<th> Delete </th>  
+				</tr>
+			</thead>
+			
+			<tbody>
+				<tr th:each = "car: ${cars}">
+					<td th:text = "${car.carno}"></td>
+					<td th:text = "${car.name}"></td>
+					<td th:text = "${car.type}"></td>
+					<td th:text = "${car.quantity}"></td>
+					<td th:text = "${car.issued}"></td>
+					<td th:text = "${car.returnstatus}"></td>
+				
+			<!-- 	
+					<td>	
+						<a th:href = "@{/cars/edit/{carno}(carno=${car.carno})}"
+						 class = "btn btn-primary">Book</a>
+						 
+					</td>
+					
+					<td>	
+						<a th:href = "@{/cars/return/{carno}(carno=${car.carno})}"
+						 class = "btn btn-success">Return</a>
+						 
+					</td>    -->	
+					
+					
+					<td>	
+						<a th:href = "@{/cars/{carno}(carno=${car.carno})}"
+						 class = "btn btn-danger">Delete</a>
+						 
+					</td>
+				</tr>
+			</tbody>
+		
+		</table>
+		
+	</div>
+	
+
+
+</body>
+</html>

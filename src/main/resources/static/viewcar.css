@@ -1,0 +1,18 @@
+ h1{
+
+ color:orange;
+ margin-top:2%;
+ margin-left:20%;
+ font-size: 50px;
+ text-transform: uppercase;
+ text-shadow: 0 0 3px #FF0000, 0 0 10px #0000FF;
+ 
+ }
+ 
+ form>input[type=submit]{
+ 
+     color:black !important;
+     
+ }
+ 
+ 

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Student Management System</title>
+
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+	crossorigin="anonymous">
+	
+	<script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+	
+	<link th:href="@{/rental.css}" rel="stylesheet" />
+</head>
+<body>
+
+<nav class="navbar navbar-expand-md bg-dark navbar-dark">
+  <!-- Brand -->
+  <i class='fas fa-car-side' style='font-size:48px;color:red'></i>
+  <a class="navbar-brand" th:href="@{/}">E-CAR RENTAL</a>
+
+  <!-- Toggler/collapsibe Button -->
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <!-- Navbar links -->
+  <div class="collapse navbar-collapse" id="collapsibleNavbar">
+    <ul class="navbar-nav">
+     
+       <li class="nav-item">
+       <a class="nav-link" th:href = "@{/rentals/new}" > Add Rental</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" th:href="@{/customers}">customer</a>
+      </li>
+      
+      <li class="nav-item">
+        <a class="nav-link" th:href="@{/logout}">customer</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+	<div class ="container">
+		<div class = "row">
+			<h1> Rentals </h1>
+		</div>
+		
+	<!--  	<div class = "row">
+			<div class = "col-lg-3">
+				<a th:href = "@{/rentals/new}" class = "btn btn-primary btn-sm mb-3"> Add Rental</a>
+			</div>
+		</div>    -->
+		<table class = "table table-striped table-bordered">
+			<thead class = "table-dark">
+				<tr>
+				    <th>Rental Id</th>
+					<th> Rental Name</th>
+					<th> Rental Email</th>
+					<th> Password </th>
+					<th> Mobile </th>
+					<th> Update </th>
+					<th> Delete </th>
+				</tr>
+			</thead>
+			
+			<tbody>
+				<tr th:each = "rental: ${rentals}">
+					<td th:text = "${rental.id}"></td>
+					<td th:text = "${rental.name}"></td>
+					<td th:text = "${rental.email}"></td>
+					<td th:text = "${rental.password}"></td>
+					<td th:text = "${rental.mobile}"></td>
+					<td>
+						<a th:href = "@{/rentals/edit/{id}(id=${rental.id})}"
+						 class = "btn btn-primary">Update</a>
+					</td>
+					<td>	
+						<a th:href = "@{/rentals/{id}(id=${rental.id})}"
+						 class = "btn btn-danger">Delete</a>
+						 
+					</td>
+				</tr>
+			</tbody>
+		
+		</table>
+		
+	</div>
+</body>
+</html>
